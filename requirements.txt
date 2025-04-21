@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pandas
+transformers
+datasets
+sentence-transformers
+faiss-cpu
+bert-score
