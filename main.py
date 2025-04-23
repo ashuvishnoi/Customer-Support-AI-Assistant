@@ -3,9 +3,10 @@ from pydantic import BaseModel
 from generator import Model
 from logger import log_interaction
 from eval import evaluate_bertscore
+import uvicorn
 
 app = FastAPI()
-model = Model(model_id="meta-llama/Meta-Llama-3-8B-Instruct")
+model = Model(model_id="meta-llama/Llama-3.2-1B")
 
 
 class Query(BaseModel):
@@ -29,3 +30,7 @@ def get_response(query: Query):
         result["evaluation"] = eval_score
 
     return result
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

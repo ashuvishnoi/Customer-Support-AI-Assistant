@@ -16,7 +16,8 @@ class RAGPipeLine:
         logging.info("SentenceTransformer for vector generations loaded successfully")
 
     def preprocess_data(self):
-        return self.df.dropna().sample(5000)
+        #return self.df.dropna().sample(5000)
+        return self.df.dropna()
 
     def prepare_vectors(self, inputs):
         embeddings = self.embedder.encode(inputs, convert_to_numpy=True)
